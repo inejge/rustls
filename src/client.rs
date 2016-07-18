@@ -232,7 +232,7 @@ impl ClientSessionImpl {
   }
 
   pub fn wants_read(&self) -> bool {
-    true
+    self.common.plaintext_drained()
   }
 
   pub fn wants_write(&self) -> bool {

@@ -501,6 +501,10 @@ impl SessionCommon {
     self.peer_eof && !self.message_deframer.has_pending()
   }
 
+  pub fn plaintext_drained(&self) -> bool {
+    self.received_plaintext.len() == 0
+  }
+
   /// Read TLS content from `rd`.  This method does internal
   /// buffering, so `rd` can supply TLS messages in arbitrary-
   /// sized chunks (like a socket or pipe might).
